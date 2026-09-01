@@ -39,8 +39,7 @@ app.post("/invite", (req, res) => {
         io.in(`user:${getReceiver.id}`).emit(ESocketEvent.SEND_GROUP_REQUEST, {
             id: data.id,
             firstName: data.firstName,
-            lastName: data.lastName,
-            world: data.world
+            lastName: data.lastName
         })
 
         InviteCache.set({ from: data.id, to: getReceiver.id })
