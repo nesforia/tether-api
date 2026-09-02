@@ -19,11 +19,6 @@ app.post("/auth", (req, res) => {
         return res.status(400).send({})
     }
 
-    if (UserCache.get(body.id)) {
-        Log.Warning("Someone want to generate user credentials on account that exist!")
-        return res.status(400).send({})
-    }
-
     const token = AuthToken.create(body)
     UserCache.set(body)
 
